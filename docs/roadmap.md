@@ -19,8 +19,8 @@
 
 ## Целевое окружение
 
-* SillyTavern **1.18.0** (docker на `home-services`, UI — `http://10.10.10.20:8800`).
-* Каталог установки — per-user: `/srv/dockers/sillytavern/data/default-user/extensions/Sudoku`.
+* SillyTavern **1.18.0** (docker-инсталляция для тестов).
+* Каталог установки — per-user: `<SillyTavern>/data/default-user/extensions/Sudoku`.
   Именно он лежит на смонтированном томе; `public/scripts/extensions/third-party` внутри
   контейнера обнуляется при обновлении образа.
 
@@ -64,7 +64,7 @@ style.css              # все стили под префиксом .sudoku-
 settings.html          # панель в Extensions drawer
 tests/*.test.mjs       # node-тесты чистой логики (src/core/*)
 docs/*.md              # документация
-deploy.sh              # rsync на home-services
+deploy.sh              # rsync на тестовый ST (не в git)
 ```
 
 `src/core/` не знает о DOM и о SillyTavern — только чистые функции над данными. Это делает
@@ -83,7 +83,7 @@ deploy.sh              # rsync на home-services
 
 * `manifest.json`, тонкий `index.js`, `src/ctx.js`, `src/log.js`, `src/settings.js`,
   `settings.html`, `style.css`.
-* `deploy.sh` — rsync рабочего дерева в per-user каталог расширений на `home-services`.
+* `deploy.sh` — rsync рабочего дерева в per-user каталог расширений тестового ST.
 * `.gitignore`, `CLAUDE.md`, каркас `docs/`.
 
 **Готово, когда:** расширение видно в списке Extensions на живой таверне, в консоли есть

@@ -47,18 +47,18 @@
 
 ## Установка в SillyTavern
 
-Тестовая инсталляция — docker на `home-services`, UI `http://10.10.10.20:8800`.
+Проверка идёт на отдельной docker-инсталляции ST 1.18.0.
 Каталог расширений — per-user, он же единственный на смонтированном томе:
 
 ```
-/srv/dockers/sillytavern/data/default-user/extensions/Sudoku
+<SillyTavern>/data/default-user/extensions/Sudoku
 ```
 
 `public/scripts/extensions/third-party` внутри контейнера использовать нельзя: он
 обнуляется при обновлении образа.
 
 ```bash
-./deploy.sh          # rsync рабочего дерева на home-services
+./deploy.sh          # rsync рабочего дерева на тестовый ST
 ```
 
 Скрипт исключает `docs/`, `tests/`, `CLAUDE.md`, `.gitignore` и служебные каталоги —
